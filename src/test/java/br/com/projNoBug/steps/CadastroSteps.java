@@ -1,12 +1,14 @@
 package br.com.projNoBug.steps;
 
 import br.com.projNoBug.core.Driver;
+import br.com.projNoBug.enums.Browser;
 import br.com.projNoBug.pages.CadastroPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.Map;
 
@@ -16,7 +18,7 @@ public class CadastroSteps {
 
     @Before
     public void iniciaNavegador(){
-        new Driver("chrome");
+        new Driver(Browser.CHROME);
     }
 
     @After
@@ -24,12 +26,17 @@ public class CadastroSteps {
         Driver.getDriver().quit();
     }
 
-
-    @Dado("que a pagina de cadastro esteja sendo exibida")
-    public void que_a_pagina_de_cadastro_esteja_sendo_exibida() {
+    @Dado("que a pagina de login esteja sendo exibida")
+    public void que_a_pagina_de_login_esteja_sendo_exibida() {
         Driver.getDriver().get("https://bugbank.netlify.app/");
         cadastroPage = new CadastroPage();
     }
+    @Dado("clico em registrar")
+    public void clico_em_registrar() {
+
+    }
+
+
     @Quando("os campos de cadastro forem preenchido da seguinte forma")
     public void os_campos_de_cadastro_forem_preenchido_da_seguinte_forma(Map<String, String> map) {
 
@@ -38,6 +45,8 @@ public class CadastroSteps {
         String senha = map.get("senha");
         String confSenha = map.get("confSenha");
 
+
+        cadastroPage.clickBtnRegistrar();
         cadastroPage.setInpEmail("email");
         cadastroPage.setInpName("nome");
         cadastroPage.setInpSenha("senha");

@@ -12,6 +12,10 @@ public class CadastroPage {
         PageFactory.initElements(Driver.getDriver(), cadastroMap);
     }
 
+    public void clickBtnRegistrar(){
+        cadastroMap.btnRegistrar.click();
+    }
+
     public void setInpEmail(String email){
         cadastroMap.inpEmail.sendKeys(email);
     }
@@ -35,4 +39,6 @@ public class CadastroPage {
     public void clickBtnCadastrar(){
         cadastroMap.btnCadastrar.click();
     }
+
+
 }

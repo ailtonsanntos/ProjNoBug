@@ -3,7 +3,8 @@
 Funcionalidade: Cadastrar nova conta
 
   Esquema do Cenário: Realizar o cadastro com <identificacao>
-    Dado que a pagina de cadastro esteja sendo exibida
+    Dado que a pagina de login esteja sendo exibida
+    E clico em registrar
     Quando os campos de cadastro forem preenchido da seguinte forma
       | email     | <email>     |
       | nome      | <nome>      |
